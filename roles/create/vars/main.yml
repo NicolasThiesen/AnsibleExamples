@@ -1,0 +1,8 @@
+---
+# vars file for create
+instance_type: t2.micro
+security_group: sgServer
+image: ami-0885b1f6bd170450c
+keypair: workshop
+region: us-east-1
+count: 1
