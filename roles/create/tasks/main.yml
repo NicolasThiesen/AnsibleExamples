@@ -1,4 +1,3 @@
 ---
 # tasks file for create
 - include: provisioning.yaml
-- include: installing_items.yaml
