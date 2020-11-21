@@ -1,0 +1,29 @@
+---
+- name: "atualizando repo"
+  raw: "apt update"
+
+- name: "instalando o python"
+  raw: "apt install -y python3"
+
+- name: "Instalando o Apache e o MYSQL"
+  apt: name={{ item }} state=present
+  with_items:
+    - apache2
+    - mysql-server
+    - python3-mysqldb      
+- name: "Subindo o Apache e o MYSQL e para que seja iniciado no boot"
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+    - apache2
+    - mysql 
+  
+- name: "Criando um Database de teste"
+  mysql_db: name=linuxtipsDB
+            state=present
+
+- name: "Criando um user para o mysql"
+  mysql_user: name=teste
+              password=teste123
+              priv=*.*:ALL state=present
+ 
+
