@@ -2,4 +2,3 @@
 localhost ansible_connection=local ansible_python_interpreter=python gather_facts=false
 
 [servers]
-18.212.93.254
