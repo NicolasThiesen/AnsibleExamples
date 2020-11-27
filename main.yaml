@@ -1,11 +1,6 @@
 ---
-- hosts: local
-  become: yes
-  roles:
-  - create
-
 - hosts: servers
   become: yes
   user: ubuntu
   roles:
-  - install_app
+  - install_rancher

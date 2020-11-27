@@ -13,6 +13,10 @@
       from_port: 80
       to_port: 80
       cidr_ip: 0.0.0.0/0
+    - proto: tcp
+      from_port: 8080
+      to_port: 8080
+      cidr_ip: 0.0.0.0/0
     rules_egress:
     - proto: all
       cidr_ip: 0.0.0.0/0
@@ -53,3 +57,8 @@
   args:
     tags:
       Name: Server
+
+- name: "Esperando até conectar a instância"
+  wait_for:
+   timeout: 30
+  delegate_to: localhost
