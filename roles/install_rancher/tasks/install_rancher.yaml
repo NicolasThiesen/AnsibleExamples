@@ -1,0 +1,13 @@
+- name: "Atualizando o repositório"
+  raw: apt update
+
+- name: "Instalando o Docker"
+  apt: 
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - docker.io
+      - docker
+
+- name: "Rodando o Racher"
+  raw: "docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable"
